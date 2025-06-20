@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/formulario.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-code"></i> Formulário de Cadastro</h1>
+            <p>Preencha todos os campos obrigatórios marcados com asterisco (*)</p>
+        </div>
+
+        <form id="registrationForm">
+            <fieldset>
+                <legend>Introdução</legend>
+
+                <label for="email" class="required">Email</label>
+                <input type="email" name="email" id="email" placeholder="seu.email@exemplo.com" required>
+                <p class="hint">Digite um email válido que você utiliza frequentemente</p>
+
+                <label for="filhos">Quantidade de filhos</label>
+                <input type="number" id="filhos" min="0" max="10" value="0">
+
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" min="1920-01-01" max="2023-12-31" value="2000-01-01">
+
+                <div class="radio-group">
+                    <label class="required">Possui atividade extra?</label>
+                    <div style="display: flex; gap: 20px; margin-top: 10px;">
+                        <label>
+                            <input type="radio" name="atvExtra" value="s" required> Sim
+                        </label>
+                        <label>
+                            <input type="radio" name="atvExtra" value="n"> Não
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Área de interesse</legend>
+
+                <div class="checkbox-group">
+                    <label class="required">Selecione suas áreas de interesse:</label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
+                        <label>
+                            <input type="checkbox" name="interesse" value="HTML"> HTML
+                        </label>
+                        <label>
+                            <input type="checkbox" name="interesse" value="CSS"> CSS
+                        </label>
+                        <label>
+                            <input type="checkbox" name="interesse" value="JavaScript"> JavaScript
+                        </label>
+                        <label>
+                            <input type="checkbox" name="interesse" value="PHP"> PHP
+                        </label>
+                        <label>
+                            <input type="checkbox" name="interesse" value="Python"> Python
+                        </label>
+                    </div>
+                </div>
+
+                <div class="checkbox-container">
+                    <div class="checkbox-group">
+                        <h3>Front-end</h3>
+                        <div class="checkbox-row">
+                            <label>
+                                <input type="checkbox" name="linguagem" value="HTML"> HTML
+                            </label>
+                        </div>
+                        <div class="checkbox-row">
+                            <label>
+                                <input type="checkbox" name="linguagem" value="CSS"> CSS
+                            </label>
+                        </div>
+                        <div class="checkbox-row">
+                            <label>
+                                <input type="checkbox" name="linguagem" value="JavaScript"> JavaScript
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <h3>Back-end</h3>
+                        <div class="checkbox-row">
+                            <label>
+                                <input type="checkbox" name="linguagem" value="PHP"> PHP
+                            </label>
+                        </div>
+                        <div class="checkbox-row">
+                            <label>
+                                <input type="checkbox" name="linguagem" value="Python"> Python
+                            </label>
+                        </div>
+                        <div class="checkbox-row">
+                            <label>
+                                <input type="checkbox" name="linguagem" value="NodeJS"> Node.js
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Mensagem e Contrato</legend>
+
+                <label for="mensagem">Mensagem (opcional)</label>
+                <textarea name="msg" id="mensagem" maxlength="255" placeholder="Digite sua mensagem aqui..."></textarea>
+
+                <div class="contract-container">
+                    <div class="contract-title">CONTRATO DE ATUALIZAÇÃO</div>
+                    <div class="contract-content">
+                        <p>1.1 Regra 1: Ao se cadastrar, você concorda em receber atualizações periódicas sobre nosso
+                            serviço.</p>
+                        <p>1.2 Regra 2: Você concorda que suas informações serão armazenadas de acordo com nossa
+                            política de privacidade.</p>
+                        <p>1.3 Regra 3: Você pode cancelar sua inscrição a qualquer momento através do link no rodapé
+                            dos e-mails.</p>
+                    </div>
+                </div>
+
+                <div class="checkbox-row">
+                    <label>
+                        <input type="checkbox" id="aceitarContrato" required>
+                        <span class="required">Li e aceito o contrato de atualização.</span>
+                    </label>
+                </div>
+
+                <label for="arquivo">Anexar documento (opcional)</label>
+                <input type="file" id="arquivo">
+            </fieldset>
+
+            <input type="hidden" name="token" value="abcde321">
+
+            <div class="button-group">
+                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar Formulário</button>
+                <button type="button" id="btnLimpar"><i class="fas fa-broom"></i> Limpar Tudo</button>
+                <button type="button" id="btnAjuda"><i class="fas fa-question-circle"></i> Ajuda</button>
+            </div>
+
+            <div class="extra-controls">
+                <label for="nivelSatisfacao">Nível de satisfação:</label>
+                <div class="slider-container">
+                    <input type="range" id="nivelSatisfacao" min="0" max="100" step="1" value="50">
+                </div>
+
+                <div class="color-time-container">
+                    <div>
+                        <label for="horaPreferencia">Hora preferida para contato:</label>
+                        <input type="time" id="horaPreferencia">
+                    </div>
+
+                    <div>
+                        <label for="corPreferida">Cor preferida:</label>
+                        <input type="color" id="corPreferida" value="#726a95">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="footer">
+            <p>© 2025 Todos os direitos reservados | Formulário seguro</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registrationForm');
+            const btnLimpar = document.getElementById('btnLimpar');
+            const btnAjuda = document.getElementById('btnAjuda');
+
+            // Função para limpar o formulário
+            btnLimpar.addEventListener('click', function () {
+                form.reset();
+                document.getElementById('aceitarContrato').checked = false;
+                document.getElementById('nivelSatisfacao').value = 50;
+                document.getElementById('corPreferida').value = '#726a95';
+            });
+
+            // Botão de ajuda
+            btnAjuda.addEventListener('click', function () {
+                alert('Preencha todos os campos obrigatórios marcados com asterisco (*).\n\nPara a seção "Escolha uma linguagem", marque com um X as linguagens que desejar.\n\nPara dúvidas, entre em contato com nosso suporte.');
+            });
+
+            // Validação do formulário
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Validação de email
+                const email = document.getElementById('email');
+                if (email.value.indexOf('@') === -1 || email.value.indexOf('.') === -1) {
+                    alert('Por favor, insira um email válido.');
+                    email.focus();
+                    return;
+                }
+
+                // Validação de quantidade de filhos
+                const filhos = document.getElementById('filhos');
+                if (filhos.value < 0) {
+                    alert('A quantidade de filhos não pode ser negativa.');
+                    filhos.focus();
+                    return;
+                }
+
+                // Validação de área de interesse
+                const interesses = document.querySelectorAll('input[name="interesse"]:checked');
+                if (interesses.length === 0) {
+                    alert('Selecione pelo menos uma área de interesse.');
+                    return;
+                }
+
+                // Validação de linguagem selecionada
+                const linguagens = document.querySelectorAll('input[name="linguagem"]:checked');
+                if (linguagens.length === 0) {
+                    alert('Por favor, escolha pelo menos uma linguagem.');
+                    return;
+                }
+
+                // Validação do checkbox de contrato
+                const contrato = document.getElementById('aceitarContrato');
+                if (!contrato.checked) {
+                    alert('Você deve ler e aceitar o contrato de atualização.');
+                    contrato.focus();
+                    return;
+                }
+
+                // Coletando dados do formulário
+                const formData = {
+                    email: email.value,
+                    quantidadeFilhos: filhos.value,
+                    dataNascimento: document.getElementById('dataNascimento').value,
+                    possuiAtividadeExtra: document.querySelector('input[name="atvExtra"]:checked') ?
+                        document.querySelector('input[name="atvExtra"]:checked').value : 'Não informado',
+                    areasDeInteresse: Array.from(interesses).map(item => item.value),
+                    linguagensSelecionadas: Array.from(linguagens).map(item => item.value),
+                    mensagem: document.getElementById('mensagem').value,
+                    arquivo: document.getElementById('arquivo').files[0] ?
+                        document.getElementById('arquivo').files[0].name : 'Nenhum arquivo selecionado',
+                    aceitouContrato: contrato.checked,
+                    nivelSatisfacao: document.getElementById('nivelSatisfacao').value,
+                    horaPreferencia: document.getElementById('horaPreferencia').value,
+                    corPreferida: document.getElementById('corPreferida').value,
+                    token: document.querySelector('input[name="token"]').value
+                };
+
+                console.log('Dados do formulário:', formData);
+                alert('Formulário enviado com sucesso!\n\nVerifique o console para ver os dados coletados.');
+            });
+        });
+    </script>
+</body>
+
+</html>
