@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Cadastro</title>
+    <title>Formulário de Cadastro Corrigido</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/formulario.css">
-
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
 
 <body>
     <div class="container">
@@ -178,7 +176,6 @@
             const btnLimpar = document.getElementById('btnLimpar');
             const btnAjuda = document.getElementById('btnAjuda');
 
-            // Função para limpar o formulário
             btnLimpar.addEventListener('click', function () {
                 form.reset();
                 document.getElementById('aceitarContrato').checked = false;
@@ -186,16 +183,13 @@
                 document.getElementById('corPreferida').value = '#726a95';
             });
 
-            // Botão de ajuda
             btnAjuda.addEventListener('click', function () {
                 alert('Preencha todos os campos obrigatórios marcados com asterisco (*).\n\nPara a seção "Escolha uma linguagem", marque com um X as linguagens que desejar.\n\nPara dúvidas, entre em contato com nosso suporte.');
             });
 
-            // Validação do formulário
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                // Validação de email
                 const email = document.getElementById('email');
                 if (email.value.indexOf('@') === -1 || email.value.indexOf('.') === -1) {
                     alert('Por favor, insira um email válido.');
@@ -203,7 +197,6 @@
                     return;
                 }
 
-                // Validação de quantidade de filhos
                 const filhos = document.getElementById('filhos');
                 if (parseInt(filhos.value) < 0) {
                     alert('A quantidade de filhos não pode ser negativa.');
@@ -211,21 +204,18 @@
                     return;
                 }
 
-                // Validação de área de interesse
                 const interesses = document.querySelectorAll('input[name="interesse"]:checked');
                 if (interesses.length === 0) {
                     alert('Selecione pelo menos uma área de interesse.');
                     return;
                 }
 
-                // Validação de linguagem selecionada
                 const linguagens = document.querySelectorAll('input[name="linguagem"]:checked');
                 if (linguagens.length === 0) {
                     alert('Por favor, escolha pelo menos uma linguagem.');
                     return;
                 }
 
-                // Validação do checkbox de contrato
                 const contrato = document.getElementById('aceitarContrato');
                 if (!contrato.checked) {
                     alert('Você deve ler e aceitar o contrato de atualização.');
@@ -233,7 +223,6 @@
                     return;
                 }
 
-                // Coletando dados do formulário
                 const formData = {
                     email: email.value,
                     quantidadeFilhos: filhos.value,
